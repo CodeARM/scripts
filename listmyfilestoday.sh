@@ -7,3 +7,4 @@ dateandtime=$(date '+%Y-%m-%d_%H-%M-%S')
 filelist=$(ls -al)
 printf "$filelist" > "list-of-files-$dateandtime.txt"
 echo For $dateandtime, "I've added a list of files to your current directory"
+total 72

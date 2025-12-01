@@ -9,12 +9,23 @@ echo ""
 
 # CPU Usage
 echo "CPU Usage:"
+uptime 
+# cpu_idle=$(top -l 1 | awk '/CPU usage/ {print $7}' | sed 's/%//') | echo "CPU Idle:  ${cpu_idle}%"
+echo ""
 
-# Average CPU load over the last 1, 5, and 15 minutes
-uptime # | awk -F'load average: ' '{ print "Load Average: " $2 }'
+# Memory Usage
+echo "Memory Usage:"
+mem_total_bytes=$(sysctl -n hw.memsize) 
+echo $mem_total_bytes
+echo ""
 
-# Current CPU utilization snapshot
-top -bn1 | grep "CPU(s)" | awk '{print "CPU Usage: " ($2 + $4) "%"}'
-echo
+# Disk Usage
+echo "Disk Usage:"
+df -h
+echo ""
+
+# Network Status
+# echo "Network Status:"
+
 
 echo "============="

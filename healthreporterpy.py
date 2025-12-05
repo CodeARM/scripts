@@ -35,14 +35,13 @@ print()
 # ---- Interpretation ---
 # these messages assume we have some familiarity with expected behavior / uptime requirements of an application
 # this is also just a point in time, not a trend, which would be a better way to analyze if scaling is needed or if architecture supports the needs of the application's users.
-<<<<<<< HEAD
-if mem.percent >= 95:
-    print("You are very cost efficient- you're almost using all your memory, but may want to consider scaling or a different SKU, depending on usage.")
-elif mem.percent >= 85:
-    print("Your memory is well allocated, but any traffic spikes could cause slowdown or crashing.")
-else:
-    print("You have plenty of memory capacity, so you could potentially scale down or keep things the same.")
-=======
+# if mem.percent >= 95:
+#     print("You are very cost efficient- you're almost using all your memory, but may want to consider scaling or a different SKU, depending on usage.")
+# elif mem.percent >= 85:
+#     print("Your memory is well allocated, but any traffic spikes could cause slowdown or crashing.")
+# else:
+#     print("You have plenty of memory capacity, so you could potentially scale down or keep things the same.")
+# =======
 
 metrics = [mem.percent, disk.percent, psutil.cpu_percent()]
 for metric in metrics:
@@ -52,7 +51,6 @@ for metric in metrics:
         print(f"Your {metric} is well allocated, but any traffic spikes could cause slowdown or crashing.")
     else:
         print(f"You have plenty of {metric}, so you could potentially scale down or keep things the same.")
->>>>>>> 1199dc8 (fixed syntax error and called a function where I should have psutil)
 
 # ---- Optional: Alerts ----
 if mem.percent > 90:

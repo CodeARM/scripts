@@ -8,8 +8,13 @@
 # where I comment out a line I'm not using or have both
 
 # "test" can be replaced with the string I am looking for 
-
+maxargs=1
+if [ $# -ne $maxargs ]
+then 
+    echo "You need to say the string you want to look for \"$0 string-name\""
+    exit
+fi
 {
-    find . -type f -name "*test*.sh" 
-    grep -rl --include="*.sh" "test" . 
+    find . -type f -name "*$1*.sh" 
+    grep -rl --include="*.sh" "$1" . 
 } 

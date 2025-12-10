@@ -3,6 +3,7 @@
 # can upload to some future place
 
 file="./userdata.csv"
-for item in $(cat "$file"); do
-  echo "Here's a line in the file: $item"
-done 
+
+while IFS=',' read -r f1 f2 f3 f4 f5 f6 rest; do
+  echo "$f1 | $f4 | $f5 | $f6"
+done < "$file"

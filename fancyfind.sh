@@ -11,10 +11,12 @@
 maxargs=1
 if [ $# -ne $maxargs ]
 then 
-    echo "You need to say the string you want to look for \"$0 string-name\""
+    echo "You need to say the string you want to look for \"$0 string-name\"" # $0 is the name of the file in case I change the filename this will update
     exit
 fi
 {
-    find . -type f -name "*$1*.sh" 
-    grep -rl --include="*.sh" "$1" . 
+    findings=$(find . -type f -name "*$1*.sh" -exec echo "{} contains $1 in the filename" \;)
+    greppings=$(grep -rl --include="*.sh" "$1" . | sed "s/$/ contains $1 inside \n /")
+    echo $findings
+    echo $greppings
 } 
